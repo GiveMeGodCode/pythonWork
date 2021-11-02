@@ -22,3 +22,4 @@ import pyautogui
 
 check_box = pyautogui.locateOnScreen("alarm.png", grayscale=True)
 pyautogui.click(check_box)
+pyautogui.click(check_box)
