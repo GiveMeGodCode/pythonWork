@@ -20,5 +20,5 @@ import pyautogui
 
 # GrayScale.
 
-check_box = pyautogui.locateOnScreen("alarm.png", grayscale=true)
+check_box = pyautogui.locateOnScreen("alarm.png", grayscale=True)
 pyautogui.click(check_box)
