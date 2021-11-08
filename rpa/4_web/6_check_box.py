@@ -1,6 +1,7 @@
 
 import time
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 browser = webdriver.Chrome()
 browser.maximize_window()
@@ -13,7 +14,9 @@ browser.switch_to.frame('iframeResult')
 
 elem1 = browser.find_element_by_xpath('//*[@id="vehicle1"]')
 elem2 = browser.find_element_by_xpath('//*[@id="vehicle2"]')
-elem3 = browser.find_element_by_xpath('//*[@id="vehicle3"]')
+# elem3 = browser.find_element_by_xpath('//*[@id="vehicle3"]')
+elem3 = browser.find_element(By.XPATH, '//*[@id="vehicle3"]')
+
 
 # 선택이 안되어 있으면 선택하기
 if elem1.is_selected() == False:
