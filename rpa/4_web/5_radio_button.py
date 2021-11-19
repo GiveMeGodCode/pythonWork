@@ -1,7 +1,8 @@
 import time
 from selenium import webdriver
 
-browser = webdriver.Chrome()
+path = r'/Users/leeyoungjun/PYTHON_WORKSPACE/pythonWork/chromedriver'
+browser = webdriver.Chrome(path)
 
 browser.get(
     'https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_radio')
@@ -19,7 +20,7 @@ if elem.is_selected() == False:
 else:
     print("선택이 되어있어서 아무것도 하지 않음")
 
-# 선택이 안되어 있으면 선택하기
+# 선택이 안되어 있으면 선택하기czz
 if elem.is_selected() == False:
     print("선택안되어있으므로 선택하기")
     elem.click()
