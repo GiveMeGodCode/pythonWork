@@ -9,7 +9,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.common.exceptions import JavascriptException
 from xpath import *
@@ -74,17 +73,27 @@ for x in range(0, len(hmcTestData1)):
         
         try:
             if hmcTestDataOne.insdRrno:
-                browser.find_element(By.XPATH, hmc_xpath2_3_4).send_keys(ws.cell(row=x,column=y).value) #엑셀에서 가져온 주피생년월일 맵핑
+                browser.find_element(By.XPATH, hmc_xpath2_3_4).send_keys(hmcTestDataOne.insdRrno) #엑셀에서 가져온 주피생년월일 맵핑
         except NoSuchElementException:
             pass
-            
-            if "종피1생년월일"  in ws.cell(row=1,column=y).value:
-                browser.find_element(By.XPATH, hmc_xpath2_3_4_1).send_keys(ws.cell(row=x,column=y).value) #엑셀에서 가져온 종피1생년월일 맵핑
-            if "종피2생년월일"  in ws.cell(row=1,column=y).value:
-                browser.find_element(By.XPATH, hmc_xpath2_3_4_2).send_keys(ws.cell(row=x,column=y).value) #엑셀에서 가져온 종피2생년월일 맵핑
-            if "종피3생년월일"  in ws.cell(row=1,column=y).value:
-                browser.find_element(By.XPATH, hmc_xpath2_3_4_3).send_keys(ws.cell(row=x,column=y).value) #엑셀에서 가져온 종피3생년월일 맵핑
         
+        try:
+            if hmcTestDataOne.insd1Rrno:
+                browser.find_element(By.XPATH, hmc_xpath2_3_4_1).send_keys(hmcTestDataOne.insd1Rrno) #엑셀에서 가져온 종피1생년월일 맵핑
+        except NoSuchElementException:
+            pass
+
+        try:
+            if hmcTestDataOne.insd2Rrno:
+                browser.find_element(By.XPATH, hmc_xpath2_3_4_2).send_keys(hmcTestDataOne.insd2Rrno) #엑셀에서 가져온 종피2생년월일 맵핑
+        except NoSuchElementException:
+            pass
+
+        try:
+            if hmcTestDataOne.insd3Rrno:
+                browser.find_element(By.XPATH, hmc_xpath2_3_4_3).send_keys(hmcTestDataOne.insd3Rrno) #엑셀에서 가져온 종피3생년월일 맵핑
+        except NoSuchElementException:
+            pass
 
     # elif "성별" in ws.cell(row=1,column=y).value:
     #     time.sleep(0.5)
