@@ -1,3 +1,4 @@
+from typing import NewType
 from selenium import webdriver
 import time
 
@@ -17,6 +18,15 @@ for handle in handles:
     browser.switch_to.window(handle)  # 핸들로 이동해서
     print(browser.title)  # 현재 브라우저의 제목
     print()
+
+print("현재 핸들 닫기")
+browser.close()
+
+print("처음핸들로 돌아오기")
+browser.switch_to.window(curr_handle)
+print(browser.title)
+time.sleep(5)
+browser.get('http://daum.net')
 
 time.sleep(5)
 browser.quit()
